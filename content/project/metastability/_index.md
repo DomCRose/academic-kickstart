@@ -5,13 +5,14 @@ tags:
 - Open quantum systems
 - Nonequilibrium physics
 - Large deviation theory
+date: "2020-06-22T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
-#image:
-#  caption: Photo by rawpixel on Unsplash
-#  focal_point: Smart
+image:
+  caption: Photo by rawpixel on Unsplash
+  focal_point: Smart
 
 links:
 url_code: ""
