@@ -1,5 +1,5 @@
 ---
-title: Connections between reinforcement learning and statistical physics
+title: Connections between reinforcement learning and statistical mechanics
 summary: Solving physics problems and understanding reinforcement learning.
 tags:
 - Reinforcement learning
@@ -30,4 +30,4 @@ slides: ""
 
 The aim of this project is to study the numerous and deep connections between reinforcement learning (RL) and statistical mechanics (SM). This two way relationship will guide the application of RL to problems in SM, in particular nonequilibrium SM, and allow an alternative perspective on RL itself through the lens of SM techniques.
 
-The first work in this line of research exploits a deep relationship between sampling probabilistically rare trajectories of dynamical processes and maximum entropy RL, allowing application of RL to the construction of an efficient sampling dynamics for rare trajectories in discrete time. This is now available on [ArXiv](https://arxiv.org/abs/2005.12890).
+Our first work in this line of research exploits a deep relationship between sampling probabilistically rare trajectories of dynamical processes and maximum entropy RL, allowing application of RL to the construction of an efficient sampling dynamics for rare trajectories in discrete time. This is now available on [ArXiv](https://arxiv.org/abs/2005.12890).

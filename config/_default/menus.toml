@@ -26,7 +26,7 @@
 [[main]]
   name = "Full list"
   parent = "pubs"
-  url = "publications/"
+  url = "publication/"
   weight = 20
 
 [[main]]
