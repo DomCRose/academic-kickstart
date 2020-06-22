@@ -18,7 +18,7 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My research interests include nonequilibrium physics, large deviations and reinforcement learning.
 
 interests:
 - Non-equilibrium classical and quantum physics
@@ -67,4 +67,4 @@ user_groups:
 - Visitors
 ---
 
-Placeholder.
+Initially working on classical and quantum nonequilibrium phenomena, I've recently become interested in the application of reinforcement learning to problems in physics, and the application of physics based concepts and techniques to understanding reinforcement learning.
