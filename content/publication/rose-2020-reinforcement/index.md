@@ -8,5 +8,6 @@ abstract: "Very often when studying non-equilibrium systems one is interested in
 featured: true
 publication: "*ArXiv:2005.12890*"
 url_pdf: "https://arxiv.org/abs/2005.12890"
+projects: ["rl_stat_mech"]
 ---
 

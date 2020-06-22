@@ -9,5 +9,6 @@ featured: false
 publication: "*Phys. Rev. E*"
 url_pdf: "https://link.aps.org/doi/10.1103/PhysRevE.94.052132"
 doi: "10.1103/PhysRevE.94.052132"
+projects: ["metastability"]
 ---
 

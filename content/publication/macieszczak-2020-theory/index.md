@@ -8,5 +8,6 @@ abstract: "We present a general theory of classical metastability in open quantu
 featured: true
 publication: "*ArXiv:2006.01227*"
 url_pdf: "https://arxiv.org/abs/2006.01227"
+projects: ["metastability"]
 ---
 
