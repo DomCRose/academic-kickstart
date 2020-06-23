@@ -101,7 +101,7 @@ $$
 To set up this goal as a reward maximization problem, we could simply give some negative reward (i.e. a punishment) for going below zero, and a positive reward for reaching the target at the end, i.e.
 $$\tag{6}\label{walker_excursion_reward}
 r\left(s',a,s\right)=
-\begin{cases}{l@{\qquad}l}
+\begin{cases}
 1 & s'=(0,T) \\\\
 -p & s'=(x,t)\quad\mathrm{with}\quad x\leq0 \\\\
 0 & \mathrm{otherwise}
