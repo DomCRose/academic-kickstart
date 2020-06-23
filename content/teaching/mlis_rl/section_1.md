@@ -6,7 +6,7 @@ type: docs
 draft: false
 menu:
   mlis_rl:
-	parent: Lectures
+    parent: Lectures
     weight: 2
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
