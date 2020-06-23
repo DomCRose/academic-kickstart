@@ -23,7 +23,11 @@ Secondly, we need the situation in which the agent must achieve its objective, r
 To achieve its objective, the agent has the ability to exert some form of control over its environment through its **actions**: for the human playing a game, this could be to move a piece in a board game or press a button on a controller; for the robot in the factory, this could be to move its arms or adjust a gripper; for the dog in the park, this could be to run or to grab the stick in its mouth. 
 For the agent to take effective actions, it must have some knowledge about the environment with which it makes its decisions according to, called the environments **state**: for the human playing a game; this could be the current set up of pieces on a board game, or a short-term memory of recent images on a computer screen; for the robot in the factory, this could be the location of objects it can interact with; for the dog in the park, this could be the location of the stick, itself and any obstacles.
 
-{{< figure src="agent_environment_diagram.png" title="A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards." lightbox="true" >}}
+{{< 
+figure src="agent_environment_diagram.png" 
+title="A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards." 
+lightbox="true" 
+>}}
 
 Inspired by simple models of animal learning in behavioural psychology, the idea of RL is to encode the objective in **rewards** or punishments, telling the agent whether its actions in a given state are good or bad.
 These rewards are viewed as signals sent to the agent by the environment: for example, the dogs owner gives it treats for doing the right thing, or punishments for misbehaving; the human receives intrinsic satisfaction for success in games, via endorphins; the robot is instructed computationally as to whether it has made the right choices.
@@ -40,7 +44,7 @@ We label the **state** of the environment at time $t$ as $s_t$, and the **action
 The **reward** received by the agent at this time is written as $r_t$.
 The problems we consider are assumed to end at some point in the future, in which case they are called **episodic** problems, with time beginning at $0$ and ending at some potentially variable **end time** $T$.
 The sequence of states, actions and rewards in each run of a problem forms a **trajectory** or **episode**, with each set of values following the previous, i.e.
-$$\label{trajectory}
+$$\tag{1}\label{trajectory}
 s_0,a_0\rightarrow s_1,r_1,a_1\rightarrow s_2,r_2,a_2\rightarrow...\rightarrow s_T,r_T,
 $$
 where the reward for taking the action $a_t$ in the state $s_t$, triggering transition to the state $s_{t+1}$, is given at the next time, $r_{t+1}$.
