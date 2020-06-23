@@ -13,7 +13,7 @@ menu:
 weight: 1
 ---
 
-### The aims and set up of reinforcement learning
+## The aims and set up of reinforcement learning
 The task which reinforcement learning (RL) aims to solve is that of making the best decision in order to achieve some objective; of controlling something optimally to achieve some goal.
 To tackle such tasks, we start with the general set up of these problems, broken down into the main ingredients.
 
@@ -23,18 +23,18 @@ Secondly, we need the situation in which the agent must achieve its objective, r
 To achieve its objective, the agent has the ability to exert some form of control over its environment through its **actions**: for the human playing a game, this could be to move a piece in a board game or press a button on a controller; for the robot in the factory, this could be to move its arms or adjust a gripper; for the dog in the park, this could be to run or to grab the stick in its mouth. 
 For the agent to take effective actions, it must have some knowledge about the environment with which it makes its decisions according to, called the environments **state**: for the human playing a game; this could be the current set up of pieces on a board game, or a short-term memory of recent images on a computer screen; for the robot in the factory, this could be the location of objects it can interact with; for the dog in the park, this could be the location of the stick, itself and any obstacles.
 
-{{< 
-figure src="agent_environment_diagram.png" 
-title="A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards." 
-lightbox="true" 
->}}
-
 Inspired by simple models of animal learning in behavioural psychology, the idea of RL is to encode the objective in **rewards** or punishments, telling the agent whether its actions in a given state are good or bad.
 These rewards are viewed as signals sent to the agent by the environment: for example, the dogs owner gives it treats for doing the right thing, or punishments for misbehaving; the human receives intrinsic satisfaction for success in games, via endorphins; the robot is instructed computationally as to whether it has made the right choices.
 With this encoding, the task of RL then becomes to maximise the rewards, a less abstract concept than ``achieving the objective'', which can be considered generically in order to cover multiple problems with the same algorithms.
 
 Once the agent takes an action, this clearly influences a change in the environments state: in general, multiple actions taken in a sequence of resulting states will be required to achieve the objective.
-This feedback loop of actions and states, along with rewards, completes the general set up of RL problems, also referred to as control problems, and is outlined diagrammatically in Fig. \ref{agent_environment_diagram}.
+This feedback loop of actions and states, along with rewards, completes the general set up of RL problems, also referred to as control problems, and is outlined diagrammatically in Fig. [1](#figure-a-diagram-representing-the-decomposition-of-control-problems-in-to-an-agent-which-makes-the-decision-to-take-particular-actions-and-an-environment-influenced-by-those-actions-these-actions-are-taken-according-to-information-received-by-the-agent-from-the-environment-in-the-form-of-states-while-ideal-actions-in-particular-states-are-reinforced-through-rewards).
+
+{{< 
+figure src="agent_environment_diagram.png" 
+title="Figure 1. A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards." 
+lightbox="true" 
+>}}
 
 ### Mathematical formalism
 With this repeating sequence of actions, states and rewards, we clearly require some concept of time with which we can order events.
@@ -49,7 +49,7 @@ s_0,a_0\rightarrow s_1,r_1,a_1\rightarrow s_2,r_2,a_2\rightarrow...\rightarrow s
 $$
 where the reward for taking the action $a_t$ in the state $s_t$, triggering transition to the state $s_{t+1}$, is given at the next time, $r_{t+1}$.
 For clarity in later equations, we introduce a shorthand notation for a trajectory, specifically we write
-$$\label{concise_trajectory}
+$$\tag{2}\label{concise_trajectory}
 \omega_0^T=\{(s_t,a_t,r_t)\}_{t=0}^T,
 $$
 where $\omega_0^T$ is used to represent the set of states, actions and rewards between and including times $t=0$ and $t=T$, indicated by the right side of Eq. \eqref{concise_trajectory}.
@@ -58,18 +58,18 @@ Note the first reward $r_0$ and last action $a_T$ in this notation are simply a 
 The dependence of these quantities -- the states, actions and rewards -- on the previous ones in the episode follows intuitively from the set up discussed above.
 The action taken only depends on the current state of the system, according to some decision made by the agent.
 When the **agent** makes the same decision every time it is in the same state, this decision can be encoded by a function $\pi$, such that 
-$$\label{policy}
+$$\tag{3}\label{policy}
 a_t=\pi(s_t),
 $$
 where $\pi$ is called the **policy**.
 If we assume the environment is deterministic, such that it changes to the same state every time a particular action is taken in a particular state, transitions in the state of the **environment** can also be written as a function $f$ of the current state and action
-$$\label{dynamics}
+$$\tag{4}\label{dynamics}
 s_{t+1}=f(s_t,a_t),
 $$
 where we will refer to $f$ as the environments **dynamics**.
 Finally, the reward at each time must depend only on the events around that time step: the states of the environment on either side of the transition, and the action taken to trigger that transition.
 The most general **reward** is thus simply a function $r$ such that
-$$\label{rewards}
+$$\tag{5}\label{rewards}
 r_{t+1}=r\left(s_{t+1},a_t,s_t\right),
 $$
 where punishments are simply negative values, and rewards positive.
@@ -97,7 +97,7 @@ s_{t+1}=f(s_t,a_t)=(x_t+a_t,t+1).
 $$
 
 To set up this goal as a reward maximization problem, we could simply give some negative reward (i.e. a punishment) for going below zero, and a positive reward for reaching the target at the end, i.e.
-$$\label{walker_excursion_reward}
+$$\tag{6}\label{walker_excursion_reward}
 r\left(s',a,s\right)=
 \left\{\begin{array}{l@{\qquad}l}
 1 & s'=(0,T) \\\\
@@ -106,15 +106,15 @@ r\left(s',a,s\right)=
 \end{array}\right.,
 $$
 where $p$ is some positive number.
-Example walks are given in Fig. \ref{example_walks}, with the region of punishments shaded in red and the target marked with a cross; the return for one of these examples is given.
+Example walks are given in Fig. [2](#figure-examples-of-particle-walks-on-a-chain-the-red-walk-initiated-from-x-4-has-a-return-of-r1-4p-due-to-being-in-the-punishing-red-region-at-4-time-steps-excluding-the-initial-time-and-ending-at-the-target), with the region of punishments shaded in red and the target marked with a cross; the return for one of these examples is given.
 
 {{< 
 figure src="example_walks.png" 
-title="Examples of particle walks on a chain. The red walk, initiated from $x=-4$, has a return of $R=1-4p$, due to being in the punishing red region at 4 time steps (excluding the initial time), and ending at the target." 
+title="Figure 2. Examples of particle walks on a chain. The red walk, initiated from $x=-4$, has a return of $R=1-4p$, due to being in the punishing red region at 4 time steps (excluding the initial time), and ending at the target." 
 lightbox="true" 
 >}}
 
-In this simple problem, the policies which maximize the total reward over a trajectory are immediately clear: a walk from such a policy is given by the upper example in Fig. \ref{example_walks}, initiated from position $x=2$.
+In this simple problem, the policies which maximize the total reward over a trajectory are immediately clear: a walk from such a policy is given by the upper example in Fig. [2](#figure-examples-of-particle-walks-on-a-chain-the-red-walk-initiated-from-x-4-has-a-return-of-r1-4p-due-to-being-in-the-punishing-red-region-at-4-time-steps-excluding-the-initial-time-and-ending-at-the-target), initiated from position $x=2$.
 If the particle is below zero, it must move up at every time step to minimize the punishment received; if it is at zero, it must move up in order to avoid punishment; while above zero, it can move either up or down as long as it stays low enough to leave sufficient time for it to move back to zero at time $T$ in order to receive the reward.
 Notably, the value of $p$ will not change the policies which maximize the total reward, since these will all behave the same in or near the punishing region regardless of $p$.
 However, the magnitude of this punishment relative to the reward for the target can have significant effects on what the agent learns to prioritize.
@@ -139,23 +139,23 @@ R\left(\omega_t^T\right)=\sum_{t'=t+1}^{T}r_{t'},
 $$
 where the reward at time $t$ is not included as it was given in the transition to the time, not the transition following that time.
 The **value** of a state is then given by the return of the trajectory following that state under the current policy
-$$\label{state_value_return}
+$$\tag{7}\label{state_value_return}
 V_\pi(s)=\left.R\left(\omega_t^T\right)\right|_{s_{t}=s,\pi,f},
 $$
 where the ``evaluated at'' notation (the line with a subscript) is used to indicate that states and actions in the return after $s$ are generated according to the current policy $\pi$ and environment $f$: that is, given $s_t=s$, subsequent actions and states are produced according to Eq. \eqref{policy} and \eqref{dynamics}, with the corresponding rewards in the return following from Eq. \eqref{rewards}.
 The value of an action in a particular state is defined similarly, where
-$$\label{state-action_value_return}
+$$\tag{8}\label{state-action_value_return}
 Q_\pi(s,a)=\left.R\left(\omega_t^T\right)\right|_{s_{t}=s,a_{t}=a,\pi,f},
 $$
 where both the first state and its following action are now fixed, with the rest following from the policy and dynamics as indicated by the evaluation.
 The functions $V_\pi$ and $Q_\pi$ are referred to as **state value** and **state-action value** functions respectively.
 
-For example, consider the policy for particle walks defined by the arrows in Fig. \ref{example_policy_and_values}(a), where we only consider states that can reach the target.
-The values given to states by this policy are shown in Fig. \ref{example_policy_and_values}(b), and the values for actions taken in each state, grey for up and white for down, are given in Fig. \ref{example_policy_and_values}(c).
+For example, consider the policy for particle walks defined by the arrows in Fig. [3(a)](#figure-an-example-policy-a-and-its-corresponding-state-value-b-and-state-action-value-c-functions-only-odd-states-at-odd-times-and-even-states-at-even-times-are-considered-as-these-are-the-only-states-which-can-reach-the-target-x-10-at-t3-for-the-state-action-values-in-c-each-group-describes-the-values-of-actions-in-the-state-in-the-corresponding-position-with-states-at-the-final-time-excluded-since-no-action-can-be-taken-white-squares-encode-the-value-of-moving-down-while-grey-squares-encode-the-value-of-moving-up), where we only consider states that can reach the target.
+The values given to states by this policy are shown in Fig. [3(b)](#figure-an-example-policy-a-and-its-corresponding-state-value-b-and-state-action-value-c-functions-only-odd-states-at-odd-times-and-even-states-at-even-times-are-considered-as-these-are-the-only-states-which-can-reach-the-target-x-10-at-t3-for-the-state-action-values-in-c-each-group-describes-the-values-of-actions-in-the-state-in-the-corresponding-position-with-states-at-the-final-time-excluded-since-no-action-can-be-taken-white-squares-encode-the-value-of-moving-down-while-grey-squares-encode-the-value-of-moving-up), and the values for actions taken in each state, grey for up and white for down, are given in Fig. [3(c)](#figure-an-example-policy-a-and-its-corresponding-state-value-b-and-state-action-value-c-functions-only-odd-states-at-odd-times-and-even-states-at-even-times-are-considered-as-these-are-the-only-states-which-can-reach-the-target-x-10-at-t3-for-the-state-action-values-in-c-each-group-describes-the-values-of-actions-in-the-state-in-the-corresponding-position-with-states-at-the-final-time-excluded-since-no-action-can-be-taken-white-squares-encode-the-value-of-moving-down-while-grey-squares-encode-the-value-of-moving-up).
 
 {{< 
 figure src="example_policy_and_values.png" 
-title="An example policy (a) and its corresponding state value (b) and state-action value (c) functions. Only odd states at odd times and even states at even times are considered, as these are the only states which can reach the target x=0 at t=3. For the state-action values in (c), each group describes the values of actions in the state in the corresponding position, with states at the final time excluded since no action can be taken; white squares encode the value of moving down, while grey squares encode the value of moving up." 
+title="Figure 3. An example policy (a) and its corresponding state value (b) and state-action value (c) functions. Only odd states at odd times and even states at even times are considered, as these are the only states which can reach the target x=0 at t=3. For the state-action values in (c), each group describes the values of actions in the state in the corresponding position, with states at the final time excluded since no action can be taken; white squares encode the value of moving down, while grey squares encode the value of moving up." 
 lightbox="true" 
 >}}
 
@@ -170,8 +170,8 @@ While this would work, it can be inefficient, as the current statement of the va
 This can be improved by noting that the values of each state and state-action pair are closely related: clearly, the value of a state is equal to the value of the following state under the current policy and environment dynamics, plus the reward received in between; the value of an action in a state is the value of the state resulting from that action under the environment dynamics, plus the reward received in between.
 Mathematically, this follows from the definitions of values in Eq. \eqref{state_value_return} and \eqref{state-action_value_return} and is written as
 $$
-V_\pi(s)&=r\left(f[s,\pi(s)],\pi(s),s\right)+V_\pi(f[s,\pi(s)]),\label{state-state_bellman}\\
-Q_\pi(s,a)&=r\left(f[s,a],a,s\right)+V_\pi(f[s,a]),\label{state-action-state_bellman}
+V_\pi(s)&=r\left(f[s,\pi(s)],\pi(s),s\right)+V_\pi(f[s,\pi(s)]),\tag{9}\label{state-state_bellman}\\
+Q_\pi(s,a)&=r\left(f[s,a],a,s\right)+V_\pi(f[s,a]),\tag{10}\label{state-action-state_bellman}
 $$
 where subsequent states and actions have been written as the actions of the policy and environment on the inputs.
 Equations such as these are referred to as **Bellman equations**, and encode how state and state-action values are related.
@@ -184,7 +184,7 @@ This implies that the new policy also improves the value of at least one initial
 
 Value functions thus provide a way of ordering policies.
 A policy is said to be better than or equal to another, $\pi'\geq\pi$, if it provides an equal or greater value for every state, 
-$$\label{value_policy_ordering}
+$$\tag{11}\label{value_policy_ordering}
 V_{\pi'}(s)\geq V_{\pi}(s)\quad\mathrm{for}\ \mathrm{all}\ s.
 $$
 Specifically, this is referred to as a partial ordering, as it is possible for two policies to each be better than the other in a subset of states, in which case they are not ordered by according to Eq. \eqref{value_policy_ordering}.
@@ -200,15 +200,15 @@ along with the same optimal state-action value function $Q_*(s,a)$.
 
 As any other value functions, those of optimal policies must satisfy the Bellman equations discussed earlier.
 In the case of optimal policies, these take a particularly simple form which make no explicit reference to the policy, for example
-$$\label{bellman_optimal_value}
+$$\tag{12}\label{bellman_optimal_value}
 V_*(s)=\max_a\left\{r\left(f[s,a],a,s\right)+V_*(f[s,a])\right\}.
 $$
-For finite problems the coupled set of equations for the values given by Eq. \ref{bellman_optimal_value}, referred to as a **Bellman optimality equation**, has a unique solution for any reward function $r$ and environmental dynamics $f$: solving this equation thus solves the problem of maximizing returns.
+For finite problems the coupled set of equations for the values given by Eq. \eqref{bellman_optimal_value}, referred to as a **Bellman optimality equation**, has a unique solution for any reward function $r$ and environmental dynamics $f$: solving this equation thus solves the problem of maximizing returns.
 In reverse, given the values of some policy, by checking whether they satisfy Eq. \eqref{bellman_optimal_value} we can confirm whether the policy is optimal or not.
 
 Phrasing the goal of maximizing returns in terms of the value functions as done in this section is suggestive of a simple approach for improving the policy: assuming accurate knowledge of the current policies value functions, we simply choose a new policy in which the value of every state is equal or greater than the current one.
 As eluded to earlier, a straightforward strategy which achieves this is given by modifying the policy $\pi$ to a new policy $\pi'$ according to the state-action value function for $\pi$, such that
-$$\label{policy_improvement}
+$$\tag{13}\label{policy_improvement}
 Q_\pi(s,\pi'(s))\geq V_\pi(s)\quad\mathrm{for}\ \mathrm{all}\ s.
 $$
 That this leads to a definitively equal or better policy, i.e. that Eq. \eqref{value_policy_ordering} holds for $\pi$ and $\pi'$, is a result of the **policy improvement theorem**, which forms the conceptual basis for many of the algorithms of reinforcement learning.
@@ -218,6 +218,6 @@ This policy turns out to be optimal after only one attempt to improve it, howeve
 
 {{< 
 figure src="example_policy_improvement.png" 
-title="Example of improving a policy, where the policy in Fig. \ref{example_policy_and_values}(a) has been improved by changing the policy to take the best action according to Fig. \ref{example_policy_and_values}(c). The resulting policy (a) has values given by (b). Note how the value of the state $s=(x=-1,t=0)$ has not gone to $1-p$ as suggested by the value of taking the the up action in this state according to Fig. \ref{example_policy_and_values}(c), but has in fact gained the better value of $1$: this is a side effect of changing the policy in both $s=(x=-1,t=0)$ and $s=(x=0,t=1)$ at the same time, resulting in a greater improvement to the value of $s=(x=-1,t=0)$ than expected." 
+title="Figure 4. Example of improving a policy, where the policy in Fig. [3(a)](#figure-an-example-policy-a-and-its-corresponding-state-value-b-and-state-action-value-c-functions-only-odd-states-at-odd-times-and-even-states-at-even-times-are-considered-as-these-are-the-only-states-which-can-reach-the-target-x-10-at-t3-for-the-state-action-values-in-c-each-group-describes-the-values-of-actions-in-the-state-in-the-corresponding-position-with-states-at-the-final-time-excluded-since-no-action-can-be-taken-white-squares-encode-the-value-of-moving-down-while-grey-squares-encode-the-value-of-moving-up) has been improved by changing the policy to take the best action according to Fig. [3(c)](#figure-an-example-policy-a-and-its-corresponding-state-value-b-and-state-action-value-c-functions-only-odd-states-at-odd-times-and-even-states-at-even-times-are-considered-as-these-are-the-only-states-which-can-reach-the-target-x-10-at-t3-for-the-state-action-values-in-c-each-group-describes-the-values-of-actions-in-the-state-in-the-corresponding-position-with-states-at-the-final-time-excluded-since-no-action-can-be-taken-white-squares-encode-the-value-of-moving-down-while-grey-squares-encode-the-value-of-moving-up). The resulting policy (a) has values given by (b). Note how the value of the state $s=(x=-1,t=0)$ has not gone to $1-p$ as suggested by the value of taking the the up action in this state according to Fig. [3(c)](#figure-an-example-policy-a-and-its-corresponding-state-value-b-and-state-action-value-c-functions-only-odd-states-at-odd-times-and-even-states-at-even-times-are-considered-as-these-are-the-only-states-which-can-reach-the-target-x-10-at-t3-for-the-state-action-values-in-c-each-group-describes-the-values-of-actions-in-the-state-in-the-corresponding-position-with-states-at-the-final-time-excluded-since-no-action-can-be-taken-white-squares-encode-the-value-of-moving-down-while-grey-squares-encode-the-value-of-moving-up), but has in fact gained the better value of $1$: this is a side effect of changing the policy in both $s=(x=-1,t=0)$ and $s=(x=0,t=1)$ at the same time, resulting in a greater improvement to the value of $s=(x=-1,t=0)$ than expected." 
 lightbox="true" 
 >}}
