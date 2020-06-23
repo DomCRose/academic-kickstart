@@ -1,19 +1,18 @@
 ---
-title: Example Page 1
-linktitle: Tips 1-2
+title: Basics of reinforcement learning
+linktitle: Basics of reinforcement learning
 toc: true
 type: docs
 draft: false
 menu:
-  example:
-    parent: Example Topic
-    weight: 1
+  mlis_rl:
+	parent: Lectures
+    weight: 2
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
 weight: 1
 ---
 
-## Basics of reinforcement learning
 ### The aims and set up of reinforcement learning
 The task which reinforcement learning (RL) aims to solve is that of making the best decision in order to achieve some objective; of controlling something optimally to achieve some goal.
 To tackle such tasks, we start with the general set up of these problems, broken down into the main ingredients.
@@ -24,11 +23,7 @@ Secondly, we need the situation in which the agent must achieve its objective, r
 To achieve its objective, the agent has the ability to exert some form of control over its environment through its **actions**: for the human playing a game, this could be to move a piece in a board game or press a button on a controller; for the robot in the factory, this could be to move its arms or adjust a gripper; for the dog in the park, this could be to run or to grab the stick in its mouth. 
 For the agent to take effective actions, it must have some knowledge about the environment with which it makes its decisions according to, called the environments **state**: for the human playing a game; this could be the current set up of pieces on a board game, or a short-term memory of recent images on a computer screen; for the robot in the factory, this could be the location of objects it can interact with; for the dog in the park, this could be the location of the stick, itself and any obstacles.
 
-{{< 
-figure src="agent_environment_diagram.png" 
-title="A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards." 
-lightbox="true" 
->}}
+{{< figure src="agent_environment_diagram.png" title="A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards." lightbox="true" >}}
 
 Inspired by simple models of animal learning in behavioural psychology, the idea of RL is to encode the objective in **rewards** or punishments, telling the agent whether its actions in a given state are good or bad.
 These rewards are viewed as signals sent to the agent by the environment: for example, the dogs owner gives it treats for doing the right thing, or punishments for misbehaving; the human receives intrinsic satisfaction for success in games, via endorphins; the robot is instructed computationally as to whether it has made the right choices.
