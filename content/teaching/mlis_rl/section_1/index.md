@@ -50,7 +50,7 @@ $$
 where the reward for taking the action $a_t$ in the state $s_t$, triggering transition to the state $s_{t+1}$, is given at the next time, $r_{t+1}$.
 For clarity in later equations, we introduce a shorthand notation for a trajectory, specifically we write
 $$\tag{2}\label{concise_trajectory}
-\omega_0^T=\{(s_t,a_t,r_t)\}_{t=0}^T,
+\omega_0^T=\\{(s_t,a_t,r_t)\\}_{t=0}^T,
 $$
 where $\omega_0^T$ is used to represent the set of states, actions and rewards between and including times $t=0$ and $t=T$, indicated by the right side of Eq. \eqref{concise_trajectory}.
 Note the first reward $r_0$ and last action $a_T$ in this notation are simply a side effect of the concise notation, since they do not happen in the actual trajectory, as seen in Eq. \eqref{trajectory}.
@@ -81,7 +81,7 @@ R\left(\omega_0^T\right)=\sum_{t=1}^{T}r_t.
 $$
 
 ### Example: walks on a chain
-As a simple example, consider a particle hopping up and down on a chain running from positive to negative infinity, i.e. its position $x$ is in $\{...,-2,-1,0,1,2,...\}$.
+As a simple example, consider a particle hopping up and down on a chain running from positive to negative infinity, i.e. its position $x$ is in $\\{...,-2,-1,0,1,2,...\\}$.
 At each time step, the agent is given the choice of moving the particle either up or down by one site: stated mathematically the actions and the change induced in the position are written
 $$
 \begin{align}
@@ -133,7 +133,7 @@ To be useful, this concept of quality or value must relate to how well the curre
 
 More precisely, we define the return for a subset of the trajectory 
 $$
-\omega_t^T=\{(s_{t'},a_{t'},r_{t'})\}_{t'=t}^T,
+\omega_t^T=\\{(s_{t'},a_{t'},r_{t'})\\}_{t'=t}^T,
 $$
 as we define the return for the whole trajectory
 $$
@@ -205,7 +205,7 @@ along with the same optimal state-action value function $Q_*(s,a)$.
 As any other value functions, those of optimal policies must satisfy the Bellman equations discussed earlier.
 In the case of optimal policies, these take a particularly simple form which make no explicit reference to the policy, for example
 $$\tag{12}\label{bellman_optimal_value}
-V_*(s)=\max_a\{r\left(f[s,a],a,s\right)+V_*(f[s,a])\}.
+V_*(s)=\max_a\left\\{r\left(f[s,a],a,s\right)+V_*(f[s,a])\right\\}.
 $$
 For finite problems the coupled set of equations for the values given by Eq. \eqref{bellman_optimal_value}, referred to as a **Bellman optimality equation**, has a unique solution for any reward function $r$ and environmental dynamics $f$: solving this equation thus solves the problem of maximizing returns.
 In reverse, given the values of some policy, by checking whether they satisfy Eq. \eqref{bellman_optimal_value} we can confirm whether the policy is optimal or not.
