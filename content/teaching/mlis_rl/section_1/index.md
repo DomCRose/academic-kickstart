@@ -35,8 +35,8 @@ figure src="agent_environment_diagram.png"
 title="Figure 1. A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards." 
 lightbox="true" 
 >}}
-<p style="text-align: center;">
-### Figure 1. A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards.
+<p style="text-align: center; font-size:70%">
+Figure 1. A diagram representing the decomposition of control problems in to an agent which makes the decision to take particular actions, and an environment influenced by those actions. These actions are taken according to information received by the agent from the environment in the form of states, while ideal actions in particular states are reinforced through rewards.
 </p>
 
 ### Mathematical formalism
