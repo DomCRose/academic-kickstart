@@ -1,0 +1,14 @@
+---
+title: "Learning by doing: sampling with Monte Carlo"
+linktitle: "Learning by doing: sampling with Monte Carlo"
+toc: true
+type: docs
+draft: false
+menu:
+  mlis_rl:
+    parent: Deterministic Reinforcement Learning
+    weight: 2
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 5
+---
