@@ -7,7 +7,7 @@ draft: false
 menu:
   mlis_rl:
     parent: Deterministic Reinforcement Learning
-    weight: 2
+    weight: 5
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
 weight: 5
