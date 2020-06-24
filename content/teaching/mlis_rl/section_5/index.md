@@ -1,6 +1,6 @@
 ---
 title: "Updating estimates with estimates: Monte Carlo with bootstrapping"
-linktitle: "Updating estimates with estimates: Monte Carlo with bootstrapping"
+linktitle: Monte Carlo with bootstrapping
 toc: true
 type: docs
 draft: false

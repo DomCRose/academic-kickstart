@@ -1,6 +1,6 @@
 ---
-title: "Solving a decision problem: dynamics programming"
-linktitle: "Solving a decision problem: dynamics programming"
+title: "Solving a decision problem: dynamic programming"
+linktitle: Dynamic programming
 toc: true
 type: docs
 draft: false

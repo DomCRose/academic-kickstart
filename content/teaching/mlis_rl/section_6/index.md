@@ -1,6 +1,6 @@
 ---
 title: "Large state spaces and generalization: function approximation"
-linktitle: "Large state spaces and generalization: function approximation"
+linktitle: Function approximation and temporal differences
 toc: true
 type: docs
 draft: false

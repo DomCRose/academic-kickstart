@@ -1,6 +1,6 @@
 ---
 title: What is a state or decision worth?
-linktitle: What is a state or decision worth?
+linktitle: Value functions
 toc: true
 type: docs
 draft: false
@@ -10,7 +10,7 @@ menu:
     weight: 2
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 2
+weight: 100
 ---
 
 ## Value functions

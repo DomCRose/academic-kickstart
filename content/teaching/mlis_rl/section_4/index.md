@@ -1,6 +1,6 @@
 ---
 title: "Learning by doing: sampling with Monte Carlo"
-linktitle: "Learning by doing: sampling with Monte Carlo"
+linktitle: Monte Carlo
 toc: true
 type: docs
 draft: false
