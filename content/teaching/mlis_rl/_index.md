@@ -17,6 +17,18 @@ menu:
   mlis_rl:
     name: Overview
     weight: 1
+  mlis_rl:
+    name: Deterministic Reinforcement Learning
+    weight: 2
+  mlis_rl:
+    name: Policy gradients and deep RL
+    weight: 3
+  mlis_rl:
+    name: Example code
+    weight: 4
+  mlis_rl:
+    name: Answers
+    weight: 5
 ---
 
 These pages collect the notes, exercises, example code and video lectures for the reinforcement learning (RL) content covered in the Machine Learning in Science (MLiS) 1 and 2 modules at the University of Nottingham.
