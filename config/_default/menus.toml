@@ -71,6 +71,7 @@
   name = "Policy gradients"
   weight = 40
   parent = "pg_drl"
+  identifier = "pg"
   url = "/teaching/mlis_rl/section_2_2/"
 
 [[mlis_rl]]
