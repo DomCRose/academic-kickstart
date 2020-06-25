@@ -52,32 +52,32 @@
 #    url = "files/cv.pdf"
 #    weight = 70
 
-[[mlis_rl]]
+[[teaching.mlis_rl]]
   name = "Overview"
   weight = 10
   url = "/teaching/mlis_rl/"
 
-[[mlis_rl]]
+[[teaching.mlis_rl]]
   name = "Test"
   weight = 15
   url = "/teaching/"
 
-[[mlis_rl]]
+[[teaching.mlis_rl]]
   name = "Deterministic Reinforcement Learning"
   weight = 20
   identifier = "det_rl"
 
-[[mlis_rl]]
+[[teaching.mlis_rl]]
   name = "Policy Gradients and deep RL"
   weight = 30
   identifier = "pg_drl"
 
-[[mlis_rl]]
+[[teaching.mlis_rl]]
   name = "Policy gradients"
   weight = 40
   url = "/teaching/mlis_rl/section_2_2/"
 
-[[mlis_rl]]
+[[teaching.mlis_rl]]
   name = "Answers"
   weight = 50
   identifier = "ans"
