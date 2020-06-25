@@ -72,7 +72,6 @@
   weight = 2
   parent = "pg_drl"
   identifier = "pg"
-  url = "/teaching/mlis_rl/section_2_2/"
 
 [[mlis_rl]]
   name = "Answers"
