@@ -7,7 +7,7 @@ draft: false
 
 menu:
   mlis_rl:
-    parent: "det_rl"
+    parent: "pg_drl"
     weight: 2
     identifier: "pg"
 
