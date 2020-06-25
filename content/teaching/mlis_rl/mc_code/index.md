@@ -1,14 +1,14 @@
 ---
-title: Actor-critic demo
-linktitle: Actor-critic demonstration
+title: Monte Carlo demo
+linktitle: Monte Carlo demonstration
 toc: true
 type: docs
 draft: false
 menu:
   mlis_rl:
-    parent: "pg"
-    weight: 3
+    parent: "ex_code"
+    weight: 1
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-# weight: 1
+weight: 16
 ---

@@ -1,16 +1,14 @@
 ---
-title: "Policy gradients"
-linktitle: "Policy gradients"
+title: Actor-critic demo
+linktitle: Actor-critic demonstration
 toc: true
 type: docs
 draft: false
-
 menu:
   mlis_rl:
-    parent: "pg_drl"
-    weight: 2
-    identifier: "pg"
+    parent: "ex_code"
+    weight: 3
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 11
+weight: 18
 ---

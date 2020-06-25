@@ -1,14 +1,10 @@
 ---
-title: Answers 3
-linktitle: Answers 3
+title: "Policy gradients"
+linktitle: "Policy gradients"
 toc: true
 type: docs
 draft: false
-menu:
-  mlis_rl:
-    parent: "ans"
-    weight: 30
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 15
+weight: 11
 ---

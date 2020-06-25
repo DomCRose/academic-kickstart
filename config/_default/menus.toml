@@ -67,11 +67,10 @@
   weight = 30
   identifier = "pg_drl"
 
-[[mlis_rl.section_2_2]]
-  name = "Policy gradients"
+[[mlis_rl]]
+  name = "Example code"
   weight = 2
-  parent = "pg_drl"
-  identifier = "pg"
+  identifier = "ex_code"
 
 [[mlis_rl]]
   name = "Answers"
