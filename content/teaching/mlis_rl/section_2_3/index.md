@@ -6,8 +6,8 @@ type: docs
 draft: false
 menu:
   mlis_rl:
-    parent: Policy gradients and deep RL
-    weight: 12
+    parent: "pg_drl"
+    weight: 3
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
 weight: 12
