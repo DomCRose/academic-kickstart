@@ -6,8 +6,8 @@ type: docs
 draft: false
 menu:
   mlis_rl:
-    parent: Answers
-    weight: 103
+    parent: "ans"
+    weight: 30
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
 # weight: 3
