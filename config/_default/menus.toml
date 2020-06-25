@@ -69,7 +69,7 @@
 
 [[mlis_rl]]
   name = "Example code"
-  weight = 2
+  weight = 40
   identifier = "ex_code"
 
 [[mlis_rl]]
