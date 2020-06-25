@@ -2,21 +2,12 @@
 # Course title, summary, and position.
 linktitle: "Machine Learning in Science 1 & 2: Reinforcement Learning"
 summary: Combined resources for the reinforcement learning content taught during the Machine Learning in Science 1 and 2 modules of the Machine Learning in Science masters.
-weight: 1
 
 # Page metadata.
 title: Overview
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-
-# Add menu entry to sidebar.
-# - name: Declare this menu item as a parent with ID `name`.
-# - weight: Position of link in menu.
-menu:
-  mlis_rl:
-    name: Overview
-    weight: 1
 ---
 
 These pages collect the notes, exercises, example code and video lectures for the reinforcement learning (RL) content covered in the Machine Learning in Science (MLiS) 1 and 2 modules at the University of Nottingham.
