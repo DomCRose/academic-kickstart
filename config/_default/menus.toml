@@ -67,7 +67,7 @@
   weight = 30
   identifier = "pg_drl"
 
-[[mlis_rl]]
+[[mlis_rl.section_2_2]]
   name = "Policy gradients"
   weight = 2
   parent = "pg_drl"
