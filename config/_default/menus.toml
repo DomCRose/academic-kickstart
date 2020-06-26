@@ -67,6 +67,12 @@
   weight = 30
   identifier = "pg_drl"
 
+[[mlis_rl.section_2_2]]
+  name = "Policy Gradients and deep RL"
+  weight = 30
+  identifier = "pg"
+  parent = "pg_drl"
+
 [[mlis_rl]]
   name = "Example code"
   weight = 40
