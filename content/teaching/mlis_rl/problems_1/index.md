@@ -53,7 +53,7 @@ A robot has three limbs, each with two joints.
 For each limb, one joint can move in a plane like an elbow or knee, i.e. its position is described by a single angle $\theta_i$, where $i=1,2,3$ indexes the limb; the other joint can move spherically, like a shoulder or hip, i.e. its position is described by two angles $\phi_i,\psi_i$.
 At each time step, it can choose to move all its joints a small amount
 $$
-\{(\theta_i,\phi_i,\psi_i)\}_{i=1}^3\rightarrow\{(\theta_i+\Delta\theta_i,\phi_i+\Delta\phi_i,\psi_i+\Delta\psi_i)\}_{i=1}^3.
+\\{(\theta_i,\phi_i,\psi_i)\\}\_{i=1}^3\rightarrow\\{(\theta_i+\Delta\theta_i,\phi_i+\Delta\phi_i,\psi_i+\Delta\psi_i)\\}\_{i=1}^3.
 $$
 It is located in a closed room with a stairs; its position in space can be described by the position of its centre of mass $(x,y,z)$.
 1.  What are the states of the environment and the actions of the agent?
