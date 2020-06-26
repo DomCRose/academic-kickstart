@@ -14,7 +14,7 @@ weight: 3
 ---
 
 ## 1. Learning to walk
-Consider the walks of length $T=6$ shown in Fig. Fig. [1](#figure-figure-1),
+Consider the walks of length $T=6$ shown in Fig. [1](#figure-figure-1),
 {{< 
 figure src="example_walks.png" 
 title="Figure 1" 
