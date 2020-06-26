@@ -24,7 +24,7 @@ lightbox="true"
 Examples of particle walks on a chain. The red walk, initiated from $x=-4$, has a return of $R=1-4p$, due to being in the punishing red region at 4 time steps (excluding the initial time), and ending at the target.
 </p>
 with the reward function
-$$\label{walker_excursion_reward}
+$$\label{walker_excursion_reward}\tag{1}
 r\left(s',a,s\right)=
 \left\{\begin{array}{l@{\qquad}l}
 1 & s'=(0,T) \\
@@ -37,8 +37,8 @@ $$
 2.  Some of the walks shown are produced by the policy
     $$
     \pi(s)=
-    \left\{\begin{array}{l@{\qquad}l}
-    1 & s=(x,t)\quad\mathrm{with}\quad x\leq-1 \\
+    \left\\{\begin{array}{l@{\qquad}l}
+    1 & s=(x,t)\quad\mathrm{with}\quad x\leq-1 \\\\
     -1 & s=(x,t)\quad\mathrm{with}\quad x>-1
     \end{array}\right..
     $$
@@ -68,27 +68,27 @@ The Bellman equations considered previously are two of many possible ways of rel
 
 1.  Using equations 
     $$\begin{align}
-    V_\pi(s)&=r\left(f[s,\pi(s)],\pi(s),s\right)+V_\pi(f[s,\pi(s)]),\label  {state-state_bellman}\\\\
-    Q_\pi(s,a)&=r\left(f[s,a],a,s\right)+V_\pi(f[s,a]),\label{state-action-state_bellman}
+    V_\pi(s)&=r\left(f[s,\pi(s)],\pi(s),s\right)+V_\pi(f[s,\pi(s)]),\label  {state-state_bellman}\tag{2}\\\\
+    Q_\pi(s,a)&=r\left(f[s,a],a,s\right)+V_\pi(f[s,a]),\label{state-action-state_bellman}\tag{3}
     \end{align}$$
     write an equation for the value of a state in terms only the state-action value.
 2.  Using the answer to a) and Eq. \eqref{state-action-state_bellman} write an 
     equation for the value of a state-action pair in terms of a single reward and the  state-action value.
 3.  Using the answer to b), write down a Bellman optimality equation for the  
     state-action value function in terms of itself, analogous to the equation
-    $$\label{bellman_optimal_value}
+    $$\label{bellman_optimal_value}\tag{4}
     V_*(s)=\max_a\left\\{r\left(f[s,a],a,s\right)+V_*(f[s,a])\right\\}.
     $$ 
     for the state value function.
 
 ## 4. Deterministic policy improvement theorem
-\textbf{(Hard)} Lets prove the deterministic version of the policy improvement theorem.
+**(Hard)** Lets prove the deterministic version of the policy improvement theorem.
 That is, lets prove that given two policies $\pi$ and $\pi'$ satisfying 
-$$\label{policy_improvement}
+$$\label{policy_improvement}\tag{5}
 Q_\pi(s,\pi'(s))\geq V_\pi(s)\quad\mathrm{for}\ \mathrm{all}\ s,
 $$
 then 
-$$\label{value_policy_ordering}
+$$\label{value_policy_ordering}\tag{6}
 V_{\pi'}(s)\geq V_{\pi}(s)\quad\mathrm{for}\ \mathrm{all}\ s,
 $$
 holds, and thus $\pi'\geq\pi$.
