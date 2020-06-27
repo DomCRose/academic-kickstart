@@ -10,5 +10,11 @@ publication: "*Phys. Rev. E*"
 url_pdf: "https://link.aps.org/doi/10.1103/PhysRevE.94.052132"
 doi: "10.1103/PhysRevE.94.052132"
 projects: ["metastability"]
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+image:
+  caption: 'Basins of attraction of the mean field version of our model.'
+  focal_point: ""
+  preview_only: false
 ---
 

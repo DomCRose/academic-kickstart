@@ -9,5 +9,11 @@ featured: false
 publication: "*Phys. Rev. Lett.*"
 url_pdf: "https://link.aps.org/doi/10.1103/PhysRevLett.119.150402"
 doi: "10.1103/PhysRevLett.119.150402"
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+image:
+  caption: 'The histogram of magnetisation estimates from quantum jump Monte Carlo trajectories.'
+  focal_point: ""
+  preview_only: false
 ---
 

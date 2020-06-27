@@ -9,5 +9,11 @@ featured: true
 publication: "*ArXiv:2006.01227*"
 url_pdf: "https://arxiv.org/abs/2006.01227"
 projects: ["metastability"]
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+image:
+  caption: 'A general algorithm for construction classical metastable manifolds.'
+  focal_point: ""
+  preview_only: false
 ---
 

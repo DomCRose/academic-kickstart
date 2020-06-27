@@ -10,5 +10,11 @@ publication: "*Phys. Rev. E*"
 url_pdf: "https://link.aps.org/doi/10.1103/PhysRevE.98.022129"
 doi: "10.1103/PhysRevE.98.022129"
 projects: ["metastability"]
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+image:
+  caption: 'Trajectories for a metastable system with and without resets.'
+  focal_point: ""
+  preview_only: false
 ---
 
