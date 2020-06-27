@@ -48,6 +48,12 @@ social:
 - icon: google-scholar
   icon_pack: ai
   link: https://scholar.google.com/citations?user=PSH3eZcAAAAJ&hl
+- icon: orcid
+  icon_pack: ai
+  link: https://orcid.org/0000-0001-5390-8635
+- icon: arxiv
+  icon_pack: ai
+  link: https://arxiv.org/search/?query=Rose%2C+Dominic+C.&searchtype=all&abstracts=show&order=-announced_date_first&size=200
 - icon: github
   icon_pack: fab
   link: https://github.com/DomCRose
