@@ -8,5 +8,11 @@ abstract: "Tensor network (TN) techniques - often used in the context of quantum
 featured: false
 publication: "*ArXiv:2002.05185*"
 url_pdf: "https://arxiv.org/abs/2002.05185"
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+image:
+  caption: 'Part of the tensor network representation of an MDP.'
+  focal_point: ""
+  preview_only: false
 ---
 
