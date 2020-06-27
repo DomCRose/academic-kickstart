@@ -11,7 +11,7 @@ date: "2020-06-22T00:00:00Z"
 external_link: ""
 
 image:
-  caption: Photo by rawpixel on Unsplash
+  caption: Flow of spin states to the metastable manifold in a glassy system.
   focal_point: Smart
 
 links:
@@ -28,4 +28,4 @@ url_video: ""
 slides: ""
 ---
 
-In this project, leading on from [foundational work](https://doi-org.ezproxy.nottingham.ac.uk/10.1103/PhysRevLett.116.240404) [(ArXiv)](https://arxiv.org/abs/1512.05801) on metastability in open quantum systems, we apply this theory to a variety of models, further developing this theory in the process.
+In this project, leading on from [foundational work](https://doi-org.ezproxy.nottingham.ac.uk/10.1103/PhysRevLett.116.240404) [(ArXiv)](https://arxiv.org/abs/1512.05801) on metastability in open quantum systems, we study the metastability present in a variety of models, further developing this theory in the process.
