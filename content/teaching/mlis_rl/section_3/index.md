@@ -93,7 +93,7 @@ $$\begin{align}\label{greedy_policy}\tag{3.5}
 If multiple actions possess the same value, any is equally justified, and any strategy for selecting one for the policy can be used: for example, if the current action has maximum value, we could keep that, otherwise choosing a new maximum value action at random.
 
 <style type="text/css">
-    ol { list-style-type: lower-alpha; }
+    ol ol { list-style-type: lower-alpha; }
 </style>
 
 As discussed before, updating the policy will in turn change the values of states and actions.
