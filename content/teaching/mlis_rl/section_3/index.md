@@ -97,19 +97,16 @@ These new values could in turn show that the policy can be further improved.
 In order to reach optimality, we then apply the two steps described above, policy evaluation and policy improvement, repeatedly until the policy ceases to change.
 At each stage the policy may only be slightly modified, in which case the best values to start from are those of the previous policy, since the value function likely changes little.
 We thus have a simple algorithmic procedure for finding the optimal policy as follows:
-\begin{enumerate}
-	\item Initialize the policy $\pi$ and value function $V$.
-	\item Choose a sweep order for this evaluation:
-	\begin{enumerate}
-		\item Perform a sweep over the state space, calculating
+1.  Initialize the policy $\pi$ and value function $V$.
+2.  Choose a sweep order for this evaluation:
+	1.  Perform a sweep over the state space, calculating
 		$$\begin{align}
 		V(s)&=r\left(f[s,\pi(s)],\pi(s),s\right)+V(f[s,\pi(s)]),
 		\end{align}$$
 		for each state in the order prescribed.
-		\item Repeat until the value function remains the same after a sweep.
-	\end{enumerate}
-	\item Construct the greedy policy as a described, based on Eq. \eqref{greedy_policy}.
-	\item If $\pi'=\pi$, terminate. Else, repeat steps 2 and 3 with $\pi=\pi'$, beginning evaluation from the final values of the previous evaluation.
-\end{enumerate}
+	2.  Repeat until the value function remains the same after a sweep.
+3.  Construct the greedy policy as a described, based on Eq. \eqref{greedy_policy}.
+4.  If $\pi'=\pi$, terminate. Else, repeat steps 2 and 3 with $\pi=\pi'$, 
+	beginning evaluation from the final values of the previous evaluation.
 In the case of our running example, having evaluated the policy in Fig. \ref{example_policy_and_values}(a) as demonstrated in Fig. \ref{example_policy_evaluation}, applying step 3 of this algorithm immediately leads to the optimal policy in Fig. \ref{example_policy_improvement}(a).
 Repeating steps 2 and 3 as required will thus show that $\pi=\pi'$ on the second pass, and thus terminates the program.
