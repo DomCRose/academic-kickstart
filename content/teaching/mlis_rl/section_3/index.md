@@ -23,7 +23,7 @@ Instead, we adopt for an iterative procedure based on the Bellman equations.
 
 For example, to update the state value function, we will start from some arbitrary value function $V_0(s)$, up to the fact that the value of end states, such as those with $t=T$ in the walker examples, have zero value.
 We then update the values of all states according to
-$$\begin{align}\label{policy_evaluation_equation}
+$$\begin{align}\label{policy_evaluation_equation}\tag{3.1}
 V_{k+1}(s)&=r\left(f[s,\pi(s)],\pi(s),s\right)+V_{k}(f[s,\pi(s)]).
 \end{align}$$
 Clearly the value function $V_\pi(s)$ for $\pi$ is a fixed point for this equation.
@@ -72,22 +72,22 @@ The alternative sweep instead follows the dashed line from $V_0$ straight to $V_
 ## Policy iteration
 Once we have the values for the current policy $\pi$, we then use these values to construct a new policy.
 The policy improvement theorem discussed before implies that as long as we construct a policy $\pi'$ from the value functions of $\pi$ such that 
-$$\begin{align}\label{policy_improvement}
+$$\begin{align}\label{policy_improvement}\tag{3.2}
 Q_\pi(s,\pi'(s))\geq V_\pi(s)\quad\mathrm{for}\ \mathrm{all}\ s,
 \end{align}$$
 holds, the resulting policy will achieve an equal or higher value for all states.
 More precisely, given estimates $V(s)$ for the state values achieved after a sufficient number of sweeps, we construct $\pi'$ such that
-$$\begin{align}\label{policy_iteration_state_values}
+$$\begin{align}\label{policy_iteration_state_values}\tag{3.3}
 r\left(f[s,\pi'(s)],\pi'(s),s\right)+V(f[s,\pi'(s)])\geq V(s),
 \end{align}$$
 where the left side results from the Bellman equation for state-action values in terms of state values
 $$\begin{align}
-Q_\pi(s,a)=r\left(f[s,a],a,s\right)+V_\pi(f[s,a]).\label{state-action-state_bellman}
+Q_\pi(s,a)=r\left(f[s,a],a,s\right)+V_\pi(f[s,a]).\label{state-action-state_bellman}\tag{3.4}
 \end{align}$$
 
 The simplest policy satisfying this condition is the \textbf{greedy} policy, the one which takes the action of maximum value.
 This is given by the action which maximizes the left side of Eq. \eqref{policy_iteration_state_values}, i.e.
-$$\begin{align}\label{greedy_policy}
+$$\begin{align}\label{greedy_policy}\tag{3.5}
 \pi'(s)=\argmax_a \left\\{r\left(f[s,a],a,s\right)+V_K(f[s,a])\right\\}.
 \end{align}$$
 If multiple actions possess the same value, any is equally justified, and any strategy for selecting one for the policy can be used: for example, if the current action has maximum value, we could keep that, otherwise choosing a new maximum value action at random.

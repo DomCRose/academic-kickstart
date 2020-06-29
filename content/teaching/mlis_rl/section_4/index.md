@@ -22,8 +22,8 @@ Firstly, the set of possible states can be restricted by the initial conditions,
 For example, suppose in our walker example we only ever start in a small set of states near zero, say $x=-2,0,2$, and the target is at an end time of $T$.
 Since the particle can only jump up or down $1$ place at each time step, there is a large number of states that can never be reached: the particles position $x$ can not move further than $t$ steps away from where it starts by time $t$, so for a state $s=(x,t)$ we must have $|x|\leq t+2$, with the precise bounds of each episode depending on the initial position.
 This cone of states is sketched in Fig. \ref{relevant_states}.
-Due to the initial condition, any states outside of this cone are \textbf{inaccessible} to the control problem, and thus calculating their values is a waste of resources.
-While for this particular simple problem we could adapt our sweeps to account for this restriction, in many more complex problems the true space of \textbf{possible} states can not be found by hand.
+Due to the initial condition, any states outside of this cone are **inaccessible** to the control problem, and thus calculating their values is a waste of resources.
+While for this particular simple problem we could adapt our sweeps to account for this restriction, in many more complex problems the true space of **possible** states can not be found by hand.
 
 {{< 
 figure src="relevant_states.png" 
@@ -37,7 +37,7 @@ A sketch of the inaccessible, possible and relevant states for walks initiated f
 Secondly, and even more importantly, the relevant states are substantially less than the possible states: for a given initial policy, only a small subset of the state space will be visited.
 In our walker example for some initial policy, suppose that the trajectories followed from the three initial positions $x=-2,0,2$ all cover unique states, but lie close to the axis: positions at all times are such that $|x|<c<<T$, where $c$ is some positive constant much less than the target time $T$, which is roughly the maximum distance that could be reached from the origin.
 If we repeatedly evaluate only the values of states in the corridor in the $x-t$ plane with $|x|<c$, followed by updating the policy to the one greedy with respect to this evaluation, the actions will change to either move above zero, be drawn towards the target, or be left the same: the resulting trajectories will remain in this corridor.
-As the policy is iterated the states \textbf{relevant} to the optimization, those visited by trajectories for each iteration of the policy and others nearby, thus consists of a very small subset of the possible states, sketched in Fig. \ref{relevant_states}.
+As the policy is iterated the states **relevant** to the optimization, those visited by trajectories for each iteration of the policy and others nearby, thus consists of a very small subset of the possible states, sketched in Fig. \ref{relevant_states}.
 Again, while we may adapt our dynamic programming procedure for this simple problem as described here, for a generic environment we will have no idea which states are relevant and which are not.
 
 These different degrees of importance ascribed to each state suggest that an approach which naturally favours relevant states is desirable.
@@ -45,17 +45,17 @@ These different degrees of importance ascribed to each state suggest that an app
 ## Learning value through experience
 To solve the problem of evaluating irrelevant states, we take another note from nature: we learn through experiences sampled from actual interactions with the environment, i.e. purely from the sequence of events in trajectories.
 Theoretically, such an approach has an additional advantage, since sampled experience does not require the agent to have a precise knowledge of the inner workings of the environment, something we previously assumed.
-This makes learning from experience a \textbf{model-free} approach, in contrast to a \textbf{model-based} approach such as dynamic programming.
+This makes learning from experience a **model-free** approach, in contrast to a **model-based** approach such as dynamic programming.
 Despite this lack of knowledge, it clearly isn't necessary for learning: an animal doesn't know a precise model of gravity, mechanics and electrodynamics necessary to understand how it can apply a force to a surface, yet can easily learn to walk across the ground.
 Even if a model is available, for example in computer simulated environments, sampling experiences can help address the relevancy of states discussed earlier, since it automatically prioritizes the states which matter.
 
 To see why this works, consider the definitions of the values in terms of returns.
 As stated in 
-$$\begin{align}\label{state_value_return}
+$$\begin{align}\label{state_value_return}\tag{4.1}
 V_\pi(s)=\left.R\left(\omega_t^T\right)\right|_{s_{t}=s,\pi,f},
 \end{align}$$
 or
-$$\begin{align}\label{state-action_value_return}
+$$\begin{align}\label{state-action_value_return}\tag{4.2}
 Q_\pi(s,a)=\left.R\left(\omega_t^T\right)\right|_{s_{t}=s,a_{t}=a,\pi,f},
 \end{align}$$
 we defined the value to be the return corresponding to the sequence of states and actions generated by the current policy $\pi$ and environment $f$ when initiated from a particular state $s$ or state-action pair $(s,a)$.
@@ -74,14 +74,14 @@ purely from the reward signals recieved.
 ## Changing decision making through exploration
 Since we no longer assume the agents access to a model of the environment, the value of states can not be used to judge and choose alternative actions as done in Eq. \eqref{greedy_policy}, since we can't look ahead and see what state each action leads to.
 To update the policy, we instead need direct access to the state-action values for the current policy, so that we can construct a new greedy policy as
-$$\begin{align}\label{monte_carlo_greedy_policy}
+$$\begin{align}\label{monte_carlo_greedy_policy}\tag{4.3}
 \pi'(s)=\argmax_a Q_\pi(s,a).
 \end{align}$$
 
 Unfortunately, by only considering trajectories generated by the current policy, the agent will clearly learn nothing of the value of alternative actions to those it currently takes, since it never makes this alternative decisions.
-To achieve this, and thus facilitate genuine learning through the adjustment of decision making, we need to incorporate some form of \textbf{exploration} in our approach.
+To achieve this, and thus facilitate genuine learning through the adjustment of decision making, we need to incorporate some form of **exploration** in our approach.
 This can be done by including some small probability $\epsilon$, called the exploration rate, that the action taken is not the current greedy action, but instead a random action: that is, given $\mathcal{A}(s)$ possible actions, which may depend on the current state $s$, the probability of $a$ given $s$ is
-$$\label{epsilon-greedy}
+$$\label{epsilon-greedy}\tag{4.4}
 P_\epsilon(a|s)=
 \left\{\begin{array}{l@{\qquad}l}
 1-\epsilon+\frac{\epsilon}{\mathcal{A}(s)} & a=\pi(s) \\
@@ -131,7 +131,7 @@ After updating the value of going down in $(1,1)$ and using the new greedy polic
 </p>
 
 ## Monte Carlo policy iteration
-We now discuss some of the technical elements of turning this discussion into an actual learning algorithm, which we will refer to as \textbf{Monte-Carlo} policy iteration.
+We now discuss some of the technical elements of turning this discussion into an actual learning algorithm, which we will refer to as **Monte-Carlo** policy iteration.
 Producing actual experiences and exploring alternatives through the use of random actions is an example of a Monte-Carlo method, inspired by the randomness of games in casinos: these methods are essential to the computational study of many areas of science, from Physics and Chemistry to Computer Science and Mathematics.
 
 As with dynamic programming, our algorithm must consist of two alternating steps: first, we must perform some evaluation for the current policy; second, we must improve our policy to a new one according to this evaluation.
@@ -171,17 +171,17 @@ The resulting algorithm is sketched out below.
 
 In real world applications, where the agent is trying to achieve its goals while learning, rather than in preparation for some future occasion with no importance given to current results, exploration can be detrimental.
 If the agent has achieved a somewhat decent policy, the presence of exploratory steps could lower the returns in the short term, without appreciable gains in the long term.
-In practice, finding the balance of \textbf{exploration vs exploitation}, as this issue is called, is more of an art than a science, and depends on the problem, the algorithm and the time frame of the task, along with many other aspects.
+In practice, finding the balance of **exploration vs exploitation**, as this issue is called, is more of an art than a science, and depends on the problem, the algorithm and the time frame of the task, along with many other aspects.
 
 ## On/off-policy methods and replay buffers
-The form of exploration discussed in the previous sections is a particular case of a general concept called \textbf{off-policy} learning, where the actions taken differ from the policy we are trying to learn, with the aim of aiding exploration in order to achieve better final results.
+The form of exploration discussed in the previous sections is a particular case of a general concept called **off-policy** learning, where the actions taken differ from the policy we are trying to learn, with the aim of aiding exploration in order to achieve better final results.
 For example, here we take actions with probabilities given by the $\epsilon$-greedy policy of Eq. \eqref{epsilon-greedy}, rather than simply following the greedy policy of Eq. \eqref{monte_carlo_greedy_policy}: the consequence is that we can not use trajectories to update states occurring before exploratory steps, as their futures are off-policy.
-In contrast, \textbf{on-policy} learning updates the same policy that is used to produce trajectories, and therefore must learn a probabilistic policy directly in order to incorporate exploration.
-A more detailed discussion of on- and off-policy learning is beyond the scope of these lectures, as it requires a more general formulation of control problems, called \textbf{Markov Decision Processes}, which we will not have time to cover in depth: instead we will retain a deterministic policy, and learn using off-policy exploration through the special case of $\epsilon$-greedy policies.
+In contrast, **on-policy** learning updates the same policy that is used to produce trajectories, and therefore must learn a probabilistic policy directly in order to incorporate exploration.
+A more detailed discussion of on- and off-policy learning is beyond the scope of these lectures, as it requires a more general formulation of control problems, called **Markov Decision Processes**, which we will not have time to cover in depth: instead we will retain a deterministic policy, and learn using off-policy exploration through the special case of $\epsilon$-greedy policies.
 
-While we previously discarded all state-action pairs occurring before the last exploratory step, as their futures were not those corresponding to the \textit{current} policy, we can retain a memory of them for later use in our algorithm.
-For example, in the lower trajectory of Fig. \ref{monte_carlo} while the future of the first exploratory step was not generated by the policy the agent was following at the time the trajectory was generated, it is the future that would have been generated by the \textit{new} policy after updating with information about the second exploratory step.
+While we previously discarded all state-action pairs occurring before the last exploratory step, as their futures were not those corresponding to the _current_ policy, we can retain a memory of them for later use in our algorithm.
+For example, in the lower trajectory of Fig. \ref{monte_carlo} while the future of the first exploratory step was not generated by the policy the agent was following at the time the trajectory was generated, it is the future that would have been generated by the _new_ policy after updating with information about the second exploratory step.
 We could therefore use the future of the first exploratory step to update the value function of the new policy.
-This is a special case of a general idea commonly used in industry and research, where stored past experiences are referred to as a \textbf{replay buffer}: in general, this is an off-policy method, since a generic set of past experiences will usually not be equivalent to experiences generated by the current policy.
+This is a special case of a general idea commonly used in industry and research, where stored past experiences are referred to as a **replay buffer**: in general, this is an off-policy method, since a generic set of past experiences will usually not be equivalent to experiences generated by the current policy.
 Additionally we note that replay buffers are more commonly used with the techniques of the next section, since in a Monte-Carlo setting the full future of the actions, states and rewards after each step in the buffer is required, in order to check how the future actions taken in each state compare to those of the most recent policy.
 The storage and check thus require a substantial memory and computing overhead.
