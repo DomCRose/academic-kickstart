@@ -33,7 +33,7 @@ As the value function is iterated, the values which are accurate propagate back 
 Since we are considering problems where the trajectories end at some finite time, the maximum number of updates needed to converge is then simply the largest end time for a given initial state.
 
 Practically, a naive implementation of the above algorithm would involve two arrays, one containing the current values, and an empty one filled with the results of Eq. \eqref{policy_evaluation_equation}.
-A more memory efficient approach would be to instead use a single array, updating each element according to Eq. \ref{policy_evaluation_equation}: however, this would result in some values being updated with other values which have already been iterated, depending on the order in which they are updated.
+A more memory efficient approach would be to instead use a single array, updating each element according to Eq. \eqref{policy_evaluation_equation}: however, this would result in some values being updated with other values which have already been iterated, depending on the order in which they are updated.
 So long as this order includes every state at least once, these so-called ``in-line'' updates can be shown to still converge to $V_\pi$, often far faster in practice since they use data which is more up to date.
 Each time every state is updated at least once is then referred to as a sweep, and the order of this sweep can have a significant affect on convergence rates.
 
@@ -88,9 +88,13 @@ Q_\pi(s,a)=r\left(f[s,a],a,s\right)+V_\pi(f[s,a]).\label{state-action-state_bell
 The simplest policy satisfying this condition is the \textbf{greedy} policy, the one which takes the action of maximum value.
 This is given by the action which maximizes the left side of Eq. \eqref{policy_iteration_state_values}, i.e.
 $$\begin{align}\label{greedy_policy}\tag{3.5}
-\pi'(s)=\argmax_a \left\\{r\left(f[s,a],a,s\right)+V_K(f[s,a])\right\\}.
+\pi'(s)=\underset{a}{\operatorname{argmax}} \left\\{r\left(f[s,a],a,s\right)+V_K(f[s,a])\right\\}.
 \end{align}$$
 If multiple actions possess the same value, any is equally justified, and any strategy for selecting one for the policy can be used: for example, if the current action has maximum value, we could keep that, otherwise choosing a new maximum value action at random.
+
+<style type="text/css">
+    ol { list-style-type: lower-alpha; }
+</style>
 
 As discussed before, updating the policy will in turn change the values of states and actions.
 These new values could in turn show that the policy can be further improved.
