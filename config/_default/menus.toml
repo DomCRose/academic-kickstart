@@ -40,10 +40,10 @@
   url = "publication/"
   weight = 20
 
-[[main]]
-  name = "Teaching"
-  url = "teaching/"
-  weight = 50
+#[[main]]
+#  name = "Teaching"
+#  url = "teaching/"
+#  weight = 50
 
 [[main]]
   name = "Contact"
@@ -57,27 +57,27 @@
 #    url = "files/cv.pdf"
 #    weight = 70
 
-[[mlis_rl]]
-  name = "Overview"
-  weight = 10
-  url = "/teaching/mlis_rl/"
-
-[[mlis_rl]]
-  name = "Deterministic Reinforcement Learning"
-  weight = 20
-  identifier = "det_rl"
-
-[[mlis_rl]]
-  name = "Policy Gradients and deep RL"
-  weight = 30
-  identifier = "pg_drl"
-
-[[mlis_rl]]
-  name = "Example code"
-  weight = 40
-  identifier = "ex_code"
-
-[[mlis_rl]]
-  name = "Answers"
-  weight = 50
-  identifier = "ans"
+#[[mlis_rl]]
+#  name = "Overview"
+#  weight = 10
+#  url = "/teaching/mlis_rl/"
+#
+#[[mlis_rl]]
+#  name = "Deterministic Reinforcement Learning"
+#  weight = 20
+#  identifier = "det_rl"
+#
+#[[mlis_rl]]
+#  name = "Policy Gradients and deep RL"
+#  weight = 30
+#  identifier = "pg_drl"
+#
+#[[mlis_rl]]
+#  name = "Example code"
+#  weight = 40
+#  identifier = "ex_code"
+#
+#[[mlis_rl]]
+#  name = "Answers"
+#  weight = 50
+#  identifier = "ans"
