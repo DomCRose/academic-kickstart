@@ -51,8 +51,8 @@ subtitle = ""
 +++
 
 ## Lecturing
-- Machine Learning in Science 2, Masters, University of Nottingham: two lectures covering policy gradients and deep reinforcement learning
-- Machine Learning in Science 1, Masters, University of Nottingham: six lectures introducing reinforcement learning in a deterministic context
+- Machine Learning in Science 2, Masters, University of Nottingham: two lectures covering policy gradients and deep reinforcement learning, 2020
+- Machine Learning in Science 1, Masters, University of Nottingham: six lectures introducing reinforcement learning in a deterministic context, 2019
 
 ## Demonstrating
 - Atoms, Photons and Fundamental Particles, 3rd year, University of Nottingham, 2017-2019
